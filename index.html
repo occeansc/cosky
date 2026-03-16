@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSKY Family — Relative Strength Strategy Suite</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <div class="c-logo">
+        <svg viewBox="0 0 44 44" width="36" height="36">
+          <defs>
+            <linearGradient id="cGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00D4A0"/>
+              <stop offset="100%" stop-color="#9B6BF5"/>
+            </linearGradient>
+          </defs>
+          <path d="M 36 10 A 15 15 0 1 0 36 34" fill="none" stroke="url(#cGrad)" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="brand-name">COSKY <span class="brand-sub">Family</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#framework" class="nav-a">Framework</a></li>
+      <li><a href="#versions" class="nav-a">Versions</a></li>
+      <li><a href="#performance" class="nav-a">Performance</a></li>
+      <li><a href="#grading" class="nav-a">Grading</a></li>
+      <li><a href="#schedule" class="nav-a">Schedule</a></li>
+      <li><a href="#log" class="nav-a">Signal Log</a></li>
+      <li><a href="#prompts" class="nav-a">Prompts</a></li>
+      <li><a href="ops.html" class="nav-a">Ops Guide</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="section hero-section">
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-badge">Relative Strength Strategy · 2020–2026 · 1,041 Trades</div>
+    <h1 class="hero-title">Before the Crowd<br><span class="grad-text">Sees It</span></h1>
+    <p class="hero-sub">Five versions of David Nicoski's RS framework, each entering the institutional rotation cycle at a different point — from abandoned laggard to confirmed leader.</p>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-num" data-target="266" data-suffix="%" data-dec="0">0%</div>
+        <div class="stat-label">4.0 Total Return</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="274" data-suffix="%" data-dec="0">0%</div>
+        <div class="stat-label">4.0 Alpha vs SPY</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="366" data-suffix="K" data-dec="0" data-prefix="$">$0K</div>
+        <div class="stat-label">$100K → Final</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num" data-target="64.0" data-suffix="%" data-dec="1">0%</div>
+        <div class="stat-label">3.0 Win Rate</div>
+      </div>
+    </div>
+    <div class="version-pills">
+      <span class="vpill v10">1.0 RS High · +134%</span>
+      <span class="vpill v20">2.0 Regime+VCP · +147%</span>
+      <span class="vpill v30">3.0 RS Reversal · +93%</span>
+      <span class="vpill v40">4.0 Dark Horse · +266%</span>
+      <span class="vpill v50">5.0 Phoenix · +128%</span>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section id="framework" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">The Edge</div>
+      <h2 class="section-title">The RS Lifecycle</h2>
+      <p class="section-sub">Relative Strength (RS = stock price ÷ SPY) is a leading indicator of institutional money flow. Each COSKY version enters at a different point on the RS arc and exits when that stage is complete.</p>
+    </div>
+
+    <div class="lifecycle-container">
+      <div class="lc-arc-wrap">
+        <svg class="lc-svg" viewBox="0 0 860 200" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#9B6BF5" stop-opacity="0.3"/>
+              <stop offset="25%" stop-color="#00D4A0" stop-opacity="0.2"/>
+              <stop offset="75%" stop-color="#4B9FFF" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#FFB347" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+          <!-- Arc path glow -->
+          <path d="M 30,180 C 150,20 710,20 830,180" fill="none" stroke="url(#arcGrad)" stroke-width="32" stroke-linecap="round"/>
+          <!-- Arc centre line -->
+          <path d="M 30,180 C 150,20 710,20 830,180" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+          <!-- Axis ticks -->
+          <line x1="30" y1="180" x2="30" y2="192" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <line x1="215" y1="145" x2="212" y2="156" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <line x1="430" y1="112" x2="430" y2="124" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <line x1="645" y1="145" x2="648" y2="156" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <line x1="830" y1="180" x2="830" y2="192" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+          <!-- Axis labels -->
+          <text x="30"  y="200" class="axis-lbl" text-anchor="middle">0%</text>
+          <text x="215" y="200" class="axis-lbl" text-anchor="middle">25%</text>
+          <text x="430" y="200" class="axis-lbl" text-anchor="middle">50%</text>
+          <text x="645" y="200" class="axis-lbl" text-anchor="middle">75%</text>
+          <text x="830" y="200" class="axis-lbl" text-anchor="middle">100%</text>
+
+          <!-- 5.0 Phoenix: entry RS~2%, exit RS~68% -->
+          <path d="M 47,177 C 200,40 540,90 640,150" fill="none" stroke="#9B6BF5" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+          <circle cx="47" cy="177" r="6" fill="#9B6BF5"/>
+          <polygon points="640,144 635,156 645,156" fill="#9B6BF5"/>
+          <text x="22" y="168" class="v-lbl" fill="#9B6BF5" font-size="12">5.0</text>
+
+          <!-- 4.0 Dark Horse: entry RS~5%, exit RS~92% -->
+          <path d="M 68,172 C 200,28 690,28 790,172" fill="none" stroke="#00D4A0" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+          <circle cx="68" cy="172" r="6" fill="#00D4A0"/>
+          <polygon points="790,165 785,177 795,177" fill="#00D4A0"/>
+          <text x="42" y="158" class="v-lbl" fill="#00D4A0" font-size="12">4.0</text>
+
+          <!-- 3.0 RS Reversal: entry RS~12%, exit RS~80% -->
+          <path d="M 110,163 C 240,34 660,34 730,163" fill="none" stroke="#4B9FFF" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="110" cy="163" r="6" fill="#4B9FFF"/>
+          <polygon points="730,156 725,168 735,168" fill="#4B9FFF"/>
+          <text x="98" y="150" class="v-lbl" fill="#4B9FFF" font-size="12">3.0</text>
+
+          <!-- 2.0 Regime+VCP: entry RS~90%, fading to ~50% (dashed) -->
+          <path d="M 790,172 C 700,100 540,100 430,112" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="7,4" stroke-linecap="round" opacity="0.75"/>
+          <circle cx="790" cy="172" r="6" fill="#F59E0B"/>
+          <polygon points="430,105 424,118 436,118" fill="#F59E0B"/>
+          <text x="800" y="158" class="v-lbl" fill="#F59E0B" font-size="12">2.0</text>
+
+          <!-- 1.0 RS High: entry RS~93%, exit RS~45% (dashed) -->
+          <path d="M 808,177 C 710,95 510,95 390,115" fill="none" stroke="#FF9F40" stroke-width="2" stroke-dasharray="7,4" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="808" cy="177" r="6" fill="#FF9F40"/>
+          <polygon points="390,108 384,121 396,121" fill="#FF9F40"/>
+          <text x="818" y="163" class="v-lbl" fill="#FF9F40" font-size="12">1.0</text>
+
+          <!-- RS rank label -->
+          <text x="430" y="12" class="axis-title" text-anchor="middle">RS Percentile Rank</text>
+        </svg>
+      </div>
+
+      <div class="lc-legend">
+        <div class="lc-row"><span class="lc-dot" style="background:#9B6BF5"></span><div><strong>5.0 Phoenix</strong> — deepest RS collapse + first recovery cross. Prior-peak exit.</div></div>
+        <div class="lc-row"><span class="lc-dot" style="background:#00D4A0"></span><div><strong>4.0 Dark Horse</strong> — 48-week RS low turning up. Exits at RS 52-week high.</div></div>
+        <div class="lc-row"><span class="lc-dot" style="background:#4B9FFF"></span><div><strong>3.0 RS Reversal</strong> — RS crosses 20-day EMA from weakness. Exits before crowd confirms.</div></div>
+        <div class="lc-row"><span class="lc-dot" style="background:#F59E0B"></span><div><strong>2.0 Regime+VCP</strong> — confirmed RS leader in volatility contraction base.</div></div>
+        <div class="lc-row"><span class="lc-dot" style="background:#FF9F40"></span><div><strong>1.0 RS High</strong> — 52-week RS high. Institutional consensus confirmed.</div></div>
+      </div>
+    </div>
+
+    <div class="spy-gate-block">
+      <div class="sg-icon">🛡</div>
+      <div>
+        <strong>SPY Regime Gate</strong> — Versions 2.0, 3.0, 4.0, and 5.0 halt all new long entries when SPY trades below its 20-day EMA. In 2022 (bear market), COSKY 1.0 (no gate) had the worst drawdown. All gated versions sidestepped the majority of it.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSIONS -->
+<section id="versions" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Five Versions</div>
+      <h2 class="section-title">Pick Your Entry Point</h2>
+      <p class="section-sub">All five versions have nearly identical EV per trade (+5.1–7.2%). The difference is timing, certainty, and magnitude of move captured.</p>
+    </div>
+
+    <div class="ev-insight">
+      <div class="ev-insight-title">Expected Value Per Trade — All Versions</div>
+      <div class="ev-bars">
+        <div class="ev-bar-row"><span>4.0</span><div class="ev-bar-outer"><div class="ev-bar-fill" style="width:100%;background:#00D4A0"></div></div><span class="ev-val">+7.2%</span></div>
+        <div class="ev-bar-row"><span>2.0</span><div class="ev-bar-outer"><div class="ev-bar-fill" style="width:98%;background:#4B9FFF"></div></div><span class="ev-val">+7.1%</span></div>
+        <div class="ev-bar-row"><span>3.0</span><div class="ev-bar-outer"><div class="ev-bar-fill" style="width:96%;background:#9B6BF5"></div></div><span class="ev-val">+6.9%</span></div>
+        <div class="ev-bar-row"><span>1.0</span><div class="ev-bar-outer"><div class="ev-bar-fill" style="width:93%;background:#FF9F40"></div></div><span class="ev-val">+6.7%</span></div>
+        <div class="ev-bar-row"><span>5.0</span><div class="ev-bar-outer"><div class="ev-bar-fill" style="width:71%;background:#F59E0B"></div></div><span class="ev-val">+5.1%</span></div>
+      </div>
+      <p class="ev-note">Win rate ranking (4.0 &gt; 3.0 &gt; 5.0) is misleading. COSKY 1.0's 46% WR still produces +6.7% EV because its avg win (+21.8%) is the highest in the family.</p>
+    </div>
+
+    <div class="versions-grid">
+
+      <div class="vcard vc10">
+        <div class="vcard-top">
+          <div class="vcard-ver">1.0</div>
+          <div class="vcard-info">
+            <div class="vcard-name">RS 52-Week High</div>
+            <div class="vcard-tag">Institutional Confirmation Entry</div>
+          </div>
+        </div>
+        <div class="vcard-nums">
+          <div><span>+134%</span><label>Return</label></div>
+          <div><span>46.2%</span><label>Win Rate</label></div>
+          <div><span>+21.8%</span><label>Avg Win ★</label></div>
+          <div><span>$234K</span><label>Final</label></div>
+        </div>
+        <div class="vcard-body">Buy when RS ratio hits a new 52-week high. Late entry — institutional consensus already proven. But the highest average win per trade (+21.8%) in the entire family means when it's right, it's very right.</div>
+        <div class="vcard-footer">
+          <span class="vtag-sm">No regime gate</span>
+          <span class="vtag-sm">119 trades · 2020–2024</span>
+          <span class="vtag-sm pos">Alpha +113%</span>
+        </div>
+      </div>
+
+      <div class="vcard vc20">
+        <div class="vcard-top">
+          <div class="vcard-ver">2.0</div>
+          <div class="vcard-info">
+            <div class="vcard-name">Regime + VCP + 2R</div>
+            <div class="vcard-tag">Tightest Risk Control</div>
+          </div>
+        </div>
+        <div class="vcard-nums">
+          <div><span>+147%</span><label>Return</label></div>
+          <div><span>53.2%</span><label>Win Rate</label></div>
+          <div><span>−5.4%</span><label>Avg Loss ★</label></div>
+          <div><span>$247K</span><label>Final</label></div>
+        </div>
+        <div class="vcard-body">Adds SPY regime gate (blocks bear market entries), VCP entry filter (requires price to be in a volatility contraction base), and 2R partial exit (once 2R fires, remaining position has zero downside). Tightest average loss in the family.</div>
+        <div class="vcard-footer">
+          <span class="vtag-sm">SPY gate</span>
+          <span class="vtag-sm">VCP filter</span>
+          <span class="vtag-sm">231 trades</span>
+          <span class="vtag-sm pos">Alpha +155%</span>
+        </div>
+      </div>
+
+      <div class="vcard vc30">
+        <div class="vcard-top">
+          <div class="vcard-ver">3.0</div>
+          <div class="vcard-info">
+            <div class="vcard-name">RS Reversal</div>
+            <div class="vcard-tag">Highest Win Rate · Early-Mid Entry</div>
+          </div>
+        </div>
+        <div class="vcard-nums">
+          <div><span>+93%</span><label>Return</label></div>
+          <div class="wr-highlight"><span>64.0%</span><label>Win Rate ★</label></div>
+          <div><span>3.33</span><label>Prof. Factor</label></div>
+          <div><span>$193K</span><label>Final</label></div>
+        </div>
+        <div class="vcard-body">Enters when RS crosses its 20-day EMA from weakness — weeks before COSKY 1.0 would enter. Exits at the signal COSKY 1.0 uses as its entry (RS 52-week high). Six entry conditions must align simultaneously. Highest win rate in the family.</div>
+        <div class="vcard-footer">
+          <span class="vtag-sm">6 conditions</span>
+          <span class="vtag-sm">150 trades</span>
+          <span class="vtag-sm">XLK top sector (+14% EV)</span>
+          <span class="vtag-sm pos">Alpha +101%</span>
+        </div>
+      </div>
+
+      <div class="vcard vc40">
+        <div class="vcard-top">
+          <div class="vcard-ver">4.0</div>
+          <div class="vcard-info">
+            <div class="vcard-name">Dark Horse</div>
+            <div class="vcard-tag">Highest Alpha · Full RS Re-Rating</div>
+          </div>
+        </div>
+        <div class="vcard-nums">
+          <div class="alpha-highlight"><span>+266%</span><label>Return ★</label></div>
+          <div class="alpha-highlight"><span>+274%</span><label>Alpha ★</label></div>
+          <div><span>4.26</span><label>Prof. Factor ★</label></div>
+          <div><span>$366K</span><label>Final ★</label></div>
+        </div>
+        <div class="vcard-body">Enter at 48-week RS lows. Exit when RS reaches 52-week highs. Captures the full institutional re-rating from abandoned to confirmed leader — 80+ RS percentile points of re-rating on the best trades. 8-signal scoring system with Silver/Gold/Platinum tiers.</div>
+        <div class="vcard-footer">
+          <span class="vtag-sm">8 signals scored</span>
+          <span class="vtag-sm">Silver/Gold/Platinum</span>
+          <span class="vtag-sm">281 trades</span>
+          <span class="vtag-sm pos">XLF top sector (+15.4% EV)</span>
+        </div>
+      </div>
+
+      <div class="vcard vc50">
+        <div class="vcard-top">
+          <div class="vcard-ver">5.0</div>
+          <div class="vcard-info">
+            <div class="vcard-name">Phoenix</div>
+            <div class="vcard-tag">Deepest Entry · Prior-Peak Exit</div>
+          </div>
+        </div>
+        <div class="vcard-nums">
+          <div><span>+128%</span><label>Return</label></div>
+          <div><span>58.8%</span><label>Win Rate</label></div>
+          <div><span>3.02</span><label>Prof. Factor</label></div>
+          <div><span>$227K</span><label>Final</label></div>
+        </div>
+        <div class="vcard-body">Detects RS collapse 35%+ from peak with first recovery cross of the 10-day EMA. RS MACD applied to the RS ratio itself — not price. Exits when RS has recovered 80% of the prior collapse distance. Entirely unique exit signal in the family.</div>
+        <div class="vcard-footer">
+          <span class="vtag-sm">RS Phoenix signal</span>
+          <span class="vtag-sm">RS MACD</span>
+          <span class="vtag-sm">260 trades</span>
+          <span class="vtag-sm pos">Alpha +135%</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE -->
+<section id="performance" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Results</div>
+      <h2 class="section-title">2020–2026 Performance</h2>
+    </div>
+    <div class="perf-tabs">
+      <button class="tab-btn active" data-tab="equity">Portfolio Growth</button>
+      <button class="tab-btn" data-tab="annual">Annual Breakdown</button>
+      <button class="tab-btn" data-tab="exits">Exit Analysis</button>
+    </div>
+    <div class="tab-panel active" id="tab-equity">
+      <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
+      <p class="chart-note">Approximate portfolio values · $100,000 starting capital · 2020–2026</p>
+    </div>
+    <div class="tab-panel" id="tab-annual">
+      <div class="annual-grid">
+        <div class="chart-wrap annual-chart"><canvas id="annualWRChart"></canvas></div>
+        <div class="chart-wrap annual-chart"><canvas id="annualRetChart"></canvas></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-exits">
+      <div class="exit-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Exit Trigger</th><th>Versions</th><th>n</th><th>Win Rate</th><th>Avg P&L</th><th>EV</th><th>What It Means</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-best"><td><strong>2R Partial Exit</strong></td><td>All versions</td><td>64+29+9+21</td><td class="teal bold">100%</td><td class="teal">+13–28%</td><td class="teal bold">Guaranteed</td><td>100% WR by construct. Remaining half is risk-free. → Grade 5</td></tr>
+            <tr><td><strong>rs_high</strong> (RS 52-wk high)</td><td>4.0</td><td>5</td><td class="teal bold">100%</td><td class="teal">+47.6%</td><td class="teal bold">+47.6%</td><td>Highest single exit EV in the entire dataset. Full exit.</td></tr>
+            <tr class="row-best"><td><strong>rs_matured</strong> (RS &gt;80th pct)</td><td>4.0</td><td>10</td><td class="teal bold">100%</td><td class="teal">+21.3%</td><td class="teal">+21.3%</td><td>Institutional re-establishment confirmed.</td></tr>
+            <tr><td><strong>4.0 timeout</strong> (day 70+, positive)</td><td>4.0</td><td>44</td><td class="teal bold">97.7%</td><td class="teal">+20.7%</td><td class="teal">+20.7%</td><td>Near-certain at this point. → Grade 5 upgrade.</td></tr>
+            <tr class="row-best"><td><strong>2.0 timeout</strong></td><td>2.0</td><td>36</td><td class="teal bold">100%</td><td class="teal">+29.1%</td><td class="teal">+29.1%</td><td>All timeout closes in 2.0 were profitable.</td></tr>
+            <tr><td><strong>mom_fade</strong></td><td>3.0/4.0/5.0</td><td>73</td><td>89.7%</td><td>+13.2%</td><td>+12.3%</td><td>RS velocity falling negative post-recovery.</td></tr>
+            <tr class="row-warn"><td><strong>sec_collapse</strong></td><td>4.0/5.0</td><td>98</td><td class="amber">42.3%</td><td class="amber">+0.8%</td><td class="amber">+0.8%</td><td>Near breakeven. → Grade 2 downgrade. Exit unless stop = breakeven.</td></tr>
+            <tr class="row-bad"><td><strong>stop</strong> (7% below entry)</td><td>All</td><td>128</td><td class="red bold">0%</td><td class="red">−5.8%</td><td class="red">−5.8%</td><td>Hard stop. Maximum controlled loss.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRADING -->
+<section id="grading" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Signal Quality</div>
+      <h2 class="section-title">Dual-Track Grade System</h2>
+      <p class="section-sub">Entry Grade set at signal generation. Live Grade updated as the trade progresses. The 2R partial trigger is the single most powerful event — 100% WR guaranteed by mathematical construct.</p>
+    </div>
+
+    <div class="track-switcher">
+      <button class="track-btn active" id="trackEntryBtn" onclick="switchTrack('entry')">Track A — Entry Grade Calculator</button>
+      <button class="track-btn" id="trackLiveBtn" onclick="switchTrack('live')">Track B — Live Grade Triggers</button>
+    </div>
+
+    <!-- Entry Grade -->
+    <div id="entryTrack" class="track-panel">
+      <div class="grade-layout">
+        <div class="grade-inputs">
+          <div class="input-group">
+            <label>Version</label>
+            <select id="gc-version" class="grade-select" onchange="calcCoskyGrade()">
+              <option value="4">4.0 Dark Horse — EV +7.2%</option>
+              <option value="3">3.0 RS Reversal — EV +6.9%</option>
+              <option value="35">5.0 Phoenix — EV +5.1%</option>
+              <option value="2">2.0 Regime+VCP — EV +7.1%</option>
+              <option value="1">1.0 RS High — EV +6.7%</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Sector</label>
+            <select id="gc-sector" class="grade-select" onchange="calcCoskyGrade()">
+              <option value="XLF">XLF — Finance</option>
+              <option value="XLK">XLK — Technology</option>
+              <option value="XLE">XLE — Energy</option>
+              <option value="XLI">XLI — Industrial</option>
+              <option value="XLY">XLY — Consumer Disc.</option>
+              <option value="XLV">XLV — Healthcare</option>
+              <option value="XLB">XLB — Materials</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Month</label>
+            <select id="gc-month" class="grade-select" onchange="calcCoskyGrade()">
+              <option value="7">July</option><option value="8">August</option>
+              <option value="9">September</option><option value="3">March</option>
+              <option value="4">April</option><option value="2">February</option>
+              <option value="5">May</option><option value="6">June</option>
+              <option value="10">October</option><option value="11">November</option>
+              <option value="12">December</option><option value="1">January</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>RS Rank at Entry</label>
+            <select id="gc-rsrank" class="grade-select" onchange="calcCoskyGrade()">
+              <option value="2">0–5% (Deepest abandonment)</option>
+              <option value="7">5–10%</option>
+              <option value="15">10–20%</option>
+              <option value="25">20–30%</option>
+              <option value="50">30–50%</option>
+              <option value="75">50–75%</option>
+              <option value="90">75%+ (Near leader)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>SPY Regime</label>
+            <select id="gc-regime" class="grade-select" onchange="calcCoskyGrade()">
+              <option value="4">SPY above 20-EMA + sector trending up</option>
+              <option value="3">SPY above 20-EMA, sector neutral</option>
+              <option value="2">SPY above 20-EMA, sector mixed</option>
+              <option value="1">SPY near 20-EMA (within 2% — caution)</option>
+            </select>
+          </div>
+          <div class="grade-breakdown" id="cDimBreakdown"></div>
+        </div>
+
+        <div class="grade-output">
+          <div class="grade-display" id="coskyGradeDisplay">
+            <div class="g-stars" id="cGradeStars">★★★★★</div>
+            <div class="g-num" id="cGradeNum">5</div>
+            <div class="g-label" id="cGradeLabel">Tier 1 Entry</div>
+            <div class="g-score">Score: <span id="cGradeScore">—</span> / 20</div>
+            <div class="g-wr" id="cGradeWR">WR: —</div>
+            <div class="g-ev" id="cGradeEV">EV: —</div>
+          </div>
+
+          <div class="sector-ref" id="sectorEVRef"></div>
+
+          <div class="grade-scale">
+            <div class="gs-row gs5"><span>★★★★★  5</span><span>Score 15+</span><span>≥85% WR</span></div>
+            <div class="gs-row gs4"><span>★★★★☆  4</span><span>Score 12–14</span><span>70–84% WR</span></div>
+            <div class="gs-row gs3"><span>★★★☆☆  3</span><span>Score 9–11</span><span>55–69% WR</span></div>
+            <div class="gs-row gs2"><span>★★☆☆☆  2</span><span>Score 6–8</span><span>45–54% WR</span></div>
+            <div class="gs-row gs1"><span>★☆☆☆☆  1</span><span>Score 4–5</span><span>45–49% WR</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Grade -->
+    <div id="liveTrack" class="track-panel" style="display:none">
+      <div class="triggers-grid">
+
+        <div class="trigger-card upgrade">
+          <div class="tc-header">
+            <span class="tc-badge up">↑ UPGRADE → ★★★★★ 5</span>
+            <span class="tc-wl teal">100% WR · Guaranteed</span>
+          </div>
+          <div class="tc-title">2R Partial Exit Fires</div>
+          <div class="tc-trigger">Price reaches: Entry + 2 × (Entry − Stop)</div>
+          <div class="tc-action">Sell 50% at market immediately. Move stop to entry price (breakeven). The remaining 50% has zero downside — it <em>cannot</em> close as a loss. Grade 5 by mathematical construct, not statistical inference.</div>
+          <div class="tc-stats">
+            <div><span>All versions</span><span>+13–28% EV</span></div>
+            <div><span>64+29+9+21 fires</span><span>EV guaranteed</span></div>
+          </div>
+        </div>
+
+        <div class="trigger-card upgrade">
+          <div class="tc-header">
+            <span class="tc-badge up">↑ UPGRADE → ★★★★★ 5</span>
+            <span class="tc-wl teal">97.7% WR · n=44</span>
+          </div>
+          <div class="tc-title">COSKY 4.0 — Day 70+ with Positive P&L</div>
+          <div class="tc-trigger">4.0 position held 70+ calendar days, open P&L is positive</div>
+          <div class="tc-action">Grade 5 upgrade. This trade is near-certain to close profitably based on 44 historical occurrences. Hold through minor pullbacks. Do not close early due to impatience or month-end pressure.</div>
+          <div class="tc-stats">
+            <div><span>4.0 only</span><span>+20.7% avg EV</span></div>
+          </div>
+        </div>
+
+        <div class="trigger-card upgrade">
+          <div class="tc-header">
+            <span class="tc-badge up">↑ CLOSE (100% WR)</span>
+            <span class="tc-wl teal">+47.6% avg · n=5</span>
+          </div>
+          <div class="tc-title">RS 52-Week High Reached (4.0)</div>
+          <div class="tc-trigger">RS ratio hits new 52-week high for the first time</div>
+          <div class="tc-action">Full exit at market. This is the signal COSKY 1.0 uses as its entry — 4.0 has been in the position for weeks or months already. Highest single exit EV (+47.6%) in the entire COSKY dataset. No reason to hold further.</div>
+          <div class="tc-stats">
+            <div><span>4.0 only</span><span>Best exit EV</span></div>
+          </div>
+        </div>
+
+        <div class="trigger-card downgrade">
+          <div class="tc-header">
+            <span class="tc-badge dn">↓ DOWNGRADE → ★★☆☆☆ 2</span>
+            <span class="tc-wl amber">42% WR · n=71</span>
+          </div>
+          <div class="tc-title">Sector Collapse Detected</div>
+          <div class="tc-trigger">Sector ETF RSR drops below 33 AND stock RS is below its 20-day EMA</div>
+          <div class="tc-action">Grade 2 downgrade. Near-breakeven EV after trigger (+0.8%). Strong bias to exit. Only hold if 2R partial already fired (stop is at breakeven — trade can't close as a loss). Otherwise exit is recommended.</div>
+          <div class="tc-stats">
+            <div><span>4.0 / 5.0</span><span>EV +0.8% post-trigger</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Cadence</div>
+      <h2 class="section-title">Scanning Schedule</h2>
+      <p class="section-sub">Weekly entry scans. Daily exit monitoring. Nothing more, nothing less.</p>
+    </div>
+    <div class="schedule-grid">
+      <div class="sched-left">
+        <h3 class="sub-title">Weekly Rhythm</h3>
+        <div class="rhythm-list">
+          <div class="rhythm-item r-crit">
+            <div class="r-time">Friday close</div>
+            <div class="r-detail"><strong>Primary Entry Scan</strong> — run Prompts C-1 + C-2. Score all signals. Fill log columns 1–13 for every Grade 3+ result.</div>
+          </div>
+          <div class="rhythm-item r-high">
+            <div class="r-time">Sunday eve</div>
+            <div class="r-detail"><strong>Review + Prep</strong> — check macro calendar, sector rotation, SPY regime. Adjust sizes for seasonal weaknesses.</div>
+          </div>
+          <div class="rhythm-item r-crit">
+            <div class="r-time">Monday open</div>
+            <div class="r-detail"><strong>Execute Entries</strong> — place confirmed trades. Fill log columns 14–15.</div>
+          </div>
+          <div class="rhythm-item r-crit">
+            <div class="r-time">Daily (5 min)</div>
+            <div class="r-detail"><strong>Exit Monitor</strong> — run Prompt C-3. Check all open positions for: 2R partial, sec_collapse, stop proximity, timeout upgrades.</div>
+          </div>
+          <div class="rhythm-item r-med">
+            <div class="r-time">Monthly</div>
+            <div class="r-detail"><strong>Seasonal Sizing</strong> — check current month vs heatmap. Adjust position sizes. 15-minute task.</div>
+          </div>
+        </div>
+
+        <h3 class="sub-title" style="margin-top:2rem">Signal Frequency</h3>
+        <table class="data-table compact-table">
+          <thead><tr><th>Version</th><th>/Week</th><th>/Month</th><th>Max/Mo</th><th>Median Hold</th></tr></thead>
+          <tbody>
+            <tr><td class="bold" style="color:#00D4A0">4.0 Dark Horse</td><td>1.2</td><td>5.2</td><td class="teal bold">17</td><td>26 days</td></tr>
+            <tr><td class="bold" style="color:#9B6BF5">5.0 Phoenix</td><td>1.1</td><td>4.7</td><td>16</td><td>9 days</td></tr>
+            <tr><td class="bold" style="color:#4B9FFF">2.0 Regime+VCP</td><td>0.9</td><td>3.9</td><td>16</td><td>29 days</td></tr>
+            <tr><td class="bold" style="color:var(--accent)">3.0 Reversal</td><td>0.6</td><td>2.8</td><td>11</td><td>29 days</td></tr>
+            <tr><td class="bold" style="color:#FF9F40">1.0 RS High</td><td>0.6</td><td>2.6</td><td>9</td><td>28 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sched-right">
+        <h3 class="sub-title">Monthly Win Rate Heatmap</h3>
+        <div id="coskyHeatmap" class="cosky-heatmap"></div>
+        <p class="chart-note">Hover for exact win rate. Intensity = strength of seasonal edge.</p>
+
+        <h3 class="sub-title" style="margin-top:1.5rem">Sector EV Quick Reference</h3>
+        <table class="data-table compact-table">
+          <thead><tr><th>Sector</th><th>1.0</th><th>2.0</th><th>3.0</th><th>4.0</th><th>5.0</th></tr></thead>
+          <tbody>
+            <tr><td class="bold">XLK</td><td>+12.9%</td><td>+11.0%</td><td class="teal bold">+14.0% ★</td><td>+11.2%</td><td class="teal bold">+8.7% ★</td></tr>
+            <tr><td class="bold">XLF</td><td>+8.4%</td><td>+5.4%</td><td>+10.5%</td><td class="teal bold">+15.4% ★</td><td>+5.9%</td></tr>
+            <tr><td class="bold">XLE</td><td>+2.7%</td><td class="teal bold">+6.1% ★</td><td>+10.9%</td><td>+10.5%</td><td>+8.9%</td></tr>
+            <tr><td class="bold">XLI</td><td class="teal bold">+16.3% ★</td><td>+2.1%</td><td class="red">−2.0% ✗</td><td>+9.5%</td><td>+1.8%</td></tr>
+            <tr><td class="bold">XLB</td><td class="red">−2.0% ✗</td><td>+0.9%</td><td>+1.7%</td><td>+3.3%</td><td>+0.2%</td></tr>
+          </tbody>
+        </table>
+        <p class="chart-note">★ = top-EV sector for that version (4pts). ✗ = negative EV — skip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNAL LOG -->
+<section id="log" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Execution Tracking</div>
+      <h2 class="section-title">Signal Log</h2>
+      <p class="section-sub">Every signal from identification to final close. Saved automatically in your browser. Export to CSV anytime.</p>
+    </div>
+    <div class="log-controls">
+      <button class="btn-primary" onclick="openModal()">+ Add Signal</button>
+      <button class="btn-secondary" onclick="exportCSV()">↓ Export CSV</button>
+      <button class="btn-ghost" onclick="clearLog()">Clear All</button>
+      <span class="log-count" id="logCount">0 signals</span>
+    </div>
+    <div class="log-table-wrap">
+      <table class="log-table" id="logTable">
+        <thead>
+          <tr>
+            <th class="col-sticky">ID</th>
+            <th>Date/Time (UTC)</th>
+            <th>Version</th>
+            <th>Ticker</th>
+            <th>Sector</th>
+            <th>Grade</th>
+            <th>Tier</th>
+            <th>RS Rank</th>
+            <th>Entry $</th>
+            <th>Stop $</th>
+            <th>TP1 (2R)</th>
+            <th>TP2</th>
+            <th>R:R</th>
+            <th>Conditions</th>
+            <th>Action</th>
+            <th>Fill $</th>
+            <th>Exit Date</th>
+            <th>Exit $</th>
+            <th>Exit Reason</th>
+            <th>P&amp;L %</th>
+            <th>Live Grade</th>
+            <th class="col-del">×</th>
+          </tr>
+        </thead>
+        <tbody id="logBody"></tbody>
+      </table>
+    </div>
+    <p class="log-note">Click any cell to edit inline. Data auto-saved.</p>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="modal" id="signalModal">
+  <div class="modal-header">
+    <h3>Add COSKY Signal</h3>
+    <button onclick="closeModal()" class="modal-close">×</button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-grid">
+      <div class="mfield"><label>Date &amp; Time (UTC)</label><input type="datetime-local" id="m-dt"></div>
+      <div class="mfield"><label>Version</label>
+        <select id="m-version"><option>1.0 RS High</option><option>2.0 Regime+VCP</option><option>3.0 RS Reversal</option><option>4.0 Dark Horse</option><option>5.0 Phoenix</option></select></div>
+      <div class="mfield"><label>Ticker</label><input type="text" id="m-ticker" placeholder="e.g. NVDA"></div>
+      <div class="mfield"><label>Sector</label>
+        <select id="m-sector"><option>XLF</option><option>XLK</option><option>XLE</option><option>XLI</option><option>XLY</option><option>XLV</option><option>XLB</option></select></div>
+      <div class="mfield"><label>Grade</label>
+        <select id="m-grade"><option>★★★★★ 5</option><option>★★★★☆ 4</option><option>★★★☆☆ 3</option><option>★★☆☆☆ 2</option><option>★☆☆☆☆ 1</option></select></div>
+      <div class="mfield"><label>Tier (4.0/5.0)</label>
+        <select id="m-tier"><option>—</option><option>Silver (6–9)</option><option>Gold (10–15)</option><option>Platinum (16+)</option></select></div>
+      <div class="mfield"><label>RS Rank at Entry</label><input type="text" id="m-rsrank" placeholder="e.g. 8%"></div>
+      <div class="mfield"><label>Entry Price</label><input type="number" id="m-entry" step="0.01" placeholder="124.50"></div>
+      <div class="mfield"><label>Stop (×0.93)</label><input type="number" id="m-stop" step="0.01"></div>
+      <div class="mfield"><label>TP1 — 2R Level</label><input type="number" id="m-tp1" step="0.01"></div>
+      <div class="mfield"><label>TP2 — Exit Target</label><input type="text" id="m-tp2" placeholder="rs_high / crowd recognition"></div>
+      <div class="mfield"><label>R:R</label><input type="text" id="m-rr" placeholder="3.1:1"></div>
+      <div class="mfield mfield-full"><label>Key Conditions Met</label>
+        <textarea id="m-cond" rows="2" placeholder="Emerged from zone 8d ago | XLF sector | March (EV +17.4%)"></textarea></div>
+      <div class="mfield"><label>Action Taken</label>
+        <select id="m-action"><option>TAKEN</option><option>PASSED</option><option>WATCHING</option></select></div>
+      <div class="mfield"><label>Fill Price</label><input type="text" id="m-fill"></div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn-primary" onclick="saveSignal()">Add to Log</button>
+    <button class="btn-ghost" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- PROMPTS -->
+<section id="prompts" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">AI Integration</div>
+      <h2 class="section-title">Signal Prompts</h2>
+      <p class="section-sub">C-1 and C-2: run Friday after close. C-3: run daily before market open. Requires AI with web search enabled.</p>
+    </div>
+    <div class="prompts-list">
+
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-label">C-1</span>
+          <h3 class="p-title">COSKY 4.0 Dark Horse — Weekly Scan</h3>
+          <button class="copy-btn" onclick="copyPrompt('cp1')">Copy</button>
+        </div>
+        <div class="prompt-text" id="cp1">You are running the weekly COSKY 4.0 Dark Horse scan. Date: [DATE]. Time: [TIME] UTC.
+
+STEP 1 — REGIME CHECK: Look up current SPY price and 20-day EMA. If SPY is BELOW its 20-day EMA, stop: "BEAR REGIME — No COSKY 4.0 entries this week."
+
+STEP 2 — SCAN: [PASTE YOUR TICKER LIST]
+
+For each ticker, score 8 signals:
+(1) Zone 48wk+Rising: RS rank 0-9th pct AND 10-day RS ROC positive = +3pts
+(2) Emerged From Zone: RS rank just exited 0-9th pct in last 10 days = +4pts
+(3) RS Double Bottom: RS rank <22% AND current RS ≥ prior 20-day trough = +4pts
+(4) Price/RS Divergence: price lower low but RS higher low = +3pts
+(5) RS Compression: 10-day RS std <55% of 40-day RS std for 5+ days = +2pts
+(6) RS OBV Rising: RS OBV rising while rank <25% = +2pts
+(7) Sector Laggard: RS rank <18% but sector RS rank >45% = +4pts
+(8) Sector Rotated: sector RS crossed above 20-EMA in last 25 days = +3pts
+PLATINUM Bonus: (Zone or Emerged) AND any Phoenix signal AND rank <12 = +5pts
+
+TIER: Silver=6-9, Gold=10-15, Platinum=16+
+
+ENTRY GRADE — score 5 dimensions:
+Version 4.0=4pts. Sector EV: XLF/XLK=4pts, XLE=3pts, XLY=2pts, XLV/XLB/XLI=1pt. Month: Jul/Aug/Sep=4pts, Mar/May=3pts, others=2pts, Jan=1pt. RS rank: 0-5%=4pts, 5-10%=3pts, 10-20%=2pts, 20%+=1pt. SPY: above EMA+sector trending=4pts, above EMA=3pts.
+Grade 5=15+, Grade 4=12-14, Grade 3=9-11, Grade 2=6-8.
+
+RETURN TOP 5: Ticker | Sector | RS Rank | Score | Tier | Grade (★) | Entry | Stop (×0.93) | TP1 (2R) | TP2 (rs_high est.) | R:R | Key Conditions | Signal DateTime UTC</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-label">C-2</span>
+          <h3 class="p-title">COSKY 3.0 RS Reversal — Weekly Scan</h3>
+          <button class="copy-btn" onclick="copyPrompt('cp2')">Copy</button>
+        </div>
+        <div class="prompt-text" id="cp2">You are running the COSKY 3.0 RS Reversal weekly scan. Date: [DATE]. SPY is [above/below] its 20-day EMA.
+
+If SPY is below 20-EMA: stop. "BEAR REGIME — 3.0 entries suspended."
+
+Check [YOUR UNIVERSE] — all SIX conditions must be true simultaneously:
+(1) RS percentile rank was BELOW 28th pct approximately 20 trading days ago
+(2) RS ratio crossed ABOVE its 20-day EMA today or in the last 2 sessions
+(3) RS 20-day EMA slope is positive (today > 5 days ago)
+(4) Current RS percentile rank is BELOW 55th pct
+(5) SPY above its 20-day EMA
+(6) Fewer than 8 positions currently open
+
+GRADE each qualifying stock:
+Version 3.0=3pts. Sector: XLK=4pts, XLE=3pts, XLF=3pts, XLY=2pts, XLV=1pt, XLB=1pt, XLI=0pts (skip — negative EV). Month: Aug/Sep/Mar=4pts, Jul=3pts, others=2pts, Jan/Feb=1pt. RS rank: 10-25%=4pts, 5-10%=3pts, 25-35%=2pts, other=1pt. SPY: above EMA+sector trending=4pts, above EMA=3pts.
+
+Return top 5: Ticker | Sector | RS rank 20d ago | RS rank now | Grade (★) | Entry | Stop (×0.93) | TP1 (2R) | TP2 (RS 52-wk high — this is COSKY 1.0's entry signal) | R:R | Conditions | DateTime UTC</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-top">
+          <span class="p-label">C-3</span>
+          <h3 class="p-title">Daily Exit Monitor — All Open Positions</h3>
+          <button class="copy-btn" onclick="copyPrompt('cp3')">Copy</button>
+        </div>
+        <div class="prompt-text" id="cp3">Daily COSKY exit check. Date: [DATE].
+Open positions: [ID | Ticker | Version | Entry Date | Entry Price | Current Stop | Current Grade]
+
+For each, retrieve current price + RS data. Check IN THIS ORDER:
+
+(1) 2R PARTIAL? Price ≥ Entry + 2×(Entry−Stop)?
+→ "SELL 50%. Move stop to entry. UPGRADE → ★★★★★ 5. Record in Live Grade."
+
+(2) CROWD RECOGNITION (3.0/4.0)? RS at new 52-week high AND rank >80%?
+→ "FULL EXIT — crowd recognition. 100% WR historically."
+
+(3) 4.0 TIMEOUT? Day 70+ with positive P&L?
+→ "UPGRADE → ★★★★★ 5. 97.7% WR at this stage. Hold through pullbacks."
+
+(4) RS_HIGH (4.0)? RS hits new 52-week high?
+→ "FULL EXIT — rs_high. EV +47.6%. Best exit signal."
+
+(5) MOM FADE? (1mo RS return − 2mo RS return) < −0.012 AND rank >50% AND held >14 days?
+→ "EXIT — momentum fade."
+
+(6) PRIOR PEAK (5.0)? RS recovered 80%+ of collapse distance?
+→ "PRIOR PEAK EXIT."
+
+(7) SECTOR COLLAPSE? Sector ETF RSR <33 AND stock RS below 20-EMA?
+→ "DOWNGRADE → ★★ 2. Exit unless stop already at breakeven."
+
+(8) STOP? Price ≤ Entry × 0.93?
+→ "STOP HIT — close at market."
+
+Return: ID | Ticker | Status (HOLD/EXIT/PARTIAL/UPGRADE/DOWNGRADE) | Action | Updated Grade</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 44 44" width="26" height="26">
+        <path d="M 36 10 A 15 15 0 1 0 36 34" fill="none" stroke="url(#cGrad)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span>COSKY Family</span>
+    </div>
+    <p class="footer-note">1,041 backtested trades · $100,000 starting capital · 34-stock universe · 2020–2026</p>
+    <p class="footer-note">Past performance does not guarantee future results. Equity investing involves risk of loss.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
