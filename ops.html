@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSKY Family — Operational Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ops.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <svg class="brand-logo" viewBox="0 0 48 48" width="36" height="36">
+        <defs>
+          <linearGradient id="cGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00C896"/>
+            <stop offset="100%" stop-color="#9B6BF5"/>
+          </linearGradient>
+        </defs>
+        <path d="M 38 12 A 16 16 0 1 0 38 36" fill="none" stroke="url(#cGrad)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">COSKY <span class="brand-family">Family</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#framework" class="nav-a">Framework</a></li>
+      <li><a href="index.html#versions" class="nav-a">Versions</a></li>
+      <li><a href="index.html#performance" class="nav-a">Performance</a></li>
+      <li><a href="index.html#grading" class="nav-a">Grading</a></li>
+      <li><a href="index.html#schedule" class="nav-a">Schedule</a></li>
+      <li><a href="index.html#log" class="nav-a">Signal Log</a></li>
+      <li><a href="ops.html" class="nav-a active">Ops Guide</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="ops-hero">
+  <div class="container">
+    <div class="ops-hero-inner">
+      <div class="ops-badge">Operational Guide</div>
+      <h1 class="ops-title">COSKY <span class="teal">Signal Management</span></h1>
+      <p class="ops-sub">Dual-track grading · Version-specific protocols · Pre-trade preparation · Exit priority system · Risk controls · Performance framework. Every rule calibrated to 1,041 backtested trades.</p>
+      <div class="ops-toc">
+        <a href="#s1" class="toc-link">1. Pre-Trade</a>
+        <a href="#s2" class="toc-link">2. Dual-Track Grading</a>
+        <a href="#s3" class="toc-link">3. Grade Protocols</a>
+        <a href="#s4" class="toc-link">4. Version Rules</a>
+        <a href="#s5" class="toc-link">5. Live Management</a>
+        <a href="#s6" class="toc-link">6. Risk Controls</a>
+        <a href="#s7" class="toc-link">7. Performance</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ops-body">
+<div class="ops-layout">
+
+  <aside class="ops-sidebar" id="opsSidebar">
+    <div class="sidebar-title">Sections</div>
+    <nav class="sidebar-nav">
+      <a href="#s1" class="snav-a" data-sec="s1">1. Pre-Trade Preparation</a>
+      <a href="#s1-1" class="snav-sub">1.1 Friday Weekly Sequence</a>
+      <a href="#s1-2" class="snav-sub">1.2 Daily Exit Monitor</a>
+      <a href="#s2" class="snav-a" data-sec="s2">2. Dual-Track Grading</a>
+      <a href="#s2-1" class="snav-sub">2.1 Track A — Entry Grade</a>
+      <a href="#s2-2" class="snav-sub">2.2 Sector EV Matrix</a>
+      <a href="#s2-3" class="snav-sub">2.3 Track B — Live Grade</a>
+      <a href="#s3" class="snav-a" data-sec="s3">3. Grade Protocols</a>
+      <a href="#s3-g5" class="snav-sub">Grade 5 — Tier 1</a>
+      <a href="#s3-g4" class="snav-sub">Grade 4 — High Quality</a>
+      <a href="#s3-g3" class="snav-sub">Grade 3 — Standard</a>
+      <a href="#s3-g2" class="snav-sub">Grade 2 — Below Average</a>
+      <a href="#s3-g1" class="snav-sub">Grade 1 — Minimum</a>
+      <a href="#s4" class="snav-a" data-sec="s4">4. Version-Specific Rules</a>
+      <a href="#s4-1" class="snav-sub">4.1 COSKY 1.0</a>
+      <a href="#s4-2" class="snav-sub">4.2 COSKY 2.0</a>
+      <a href="#s4-3" class="snav-sub">4.3 COSKY 3.0</a>
+      <a href="#s4-4" class="snav-sub">4.4 COSKY 4.0</a>
+      <a href="#s4-5" class="snav-sub">4.5 COSKY 5.0</a>
+      <a href="#s5" class="snav-a" data-sec="s5">5. Live Trade Management</a>
+      <a href="#s5-1" class="snav-sub">5.1 Exit Priority Table</a>
+      <a href="#s5-2" class="snav-sub">5.2 The 2R Partial</a>
+      <a href="#s5-3" class="snav-sub">5.3 Sector Collapse Response</a>
+      <a href="#s6" class="snav-a" data-sec="s6">6. Risk Controls</a>
+      <a href="#s7" class="snav-a" data-sec="s7">7. Performance Tracking</a>
+    </nav>
+  </aside>
+
+  <main class="ops-main">
+
+    <!-- S1 -->
+    <section id="s1" class="ops-section">
+      <div class="ops-section-label">Section 1</div>
+      <h2 class="ops-h2">Pre-Trade Preparation</h2>
+      <p class="ops-p">COSKY operates on a weekly entry cadence with daily exit monitoring. The most common operational error is skipping the daily exit check — this causes sec_collapse exits to be missed, turning profitable trades into marginal ones.</p>
+
+      <div id="s1-1" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">1.1 Friday Weekly Preparation (Entry Scan Day)</h3>
+      <div class="ops-table-wrap">
+        <table class="ops-table">
+          <thead><tr><th>#</th><th>Task</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="step-num" style="color:var(--red)">1</td>
+              <td class="bold-cell" style="color:var(--red)">SPY Regime Check</td>
+              <td>Look up SPY close vs SPY 20-day EMA. If SPY is <strong>BELOW</strong> the 20-day EMA: versions 2.0, 3.0, 4.0, and 5.0 are closed to new entries. Only COSKY 1.0 may scan (no regime gate). Record regime status in signal log.</td>
+            </tr>
+            <tr>
+              <td class="step-num">2</td>
+              <td class="bold-cell">Identify current month</td>
+              <td>Check whether the current month is strong, standard, or weak for each version being scanned. July–September are universally strong (3.0 and 4.0: 120% size). January is a danger month for 2.0/3.0/4.0 — skip or reduce to 50% size.</td>
+            </tr>
+            <tr>
+              <td class="step-num">3</td>
+              <td class="bold-cell">Count open positions</td>
+              <td>Maximum 8 concurrent across all COSKY versions. No individual version should exceed 5 open positions. If at capacity, the scan output is watchlist only — no new entries until a position closes.</td>
+            </tr>
+            <tr>
+              <td class="step-num">4</td>
+              <td class="bold-cell">Run entry scans in priority order</td>
+              <td>Priority: (1) COSKY 4.0 via Prompt C-1. (2) COSKY 3.0 via Prompt C-2. (3) Other versions as needed. Priority order reflects EV: 4.0 first, then 3.0/2.0, then 5.0, then 1.0.</td>
+            </tr>
+            <tr>
+              <td class="step-num">5</td>
+              <td class="bold-cell">Score and grade outputs</td>
+              <td>For every qualifying signal from the AI scan, calculate the Entry Grade using the 5-dimension scoring system. Discard Grade 1 unless at full portfolio deployment. Record Grades 2–5 in the signal log (columns 1–13).</td>
+            </tr>
+            <tr>
+              <td class="step-num">6</td>
+              <td class="bold-cell">Sunday review</td>
+              <td>Review shortlist. Check macro calendar for major events (FOMC, key earnings, sector-disrupting data releases). Adjust grades if needed. Confirm seasonal position size adjustments for the coming week.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="s1-2" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">1.2 Daily Exit Monitor — Every Market Day</h3>
+      <div class="callout callout-red">
+        <div class="callout-title">🚨 The Daily Exit Monitor is Non-Negotiable</div>
+        <p>Run Prompt C-3 before or at market open every day. Sec_collapse (42% WR after trigger) requires same-day action. A trade that triggers sec_collapse on Tuesday but is only checked on Friday has potentially surrendered weeks of unrealised profit.</p>
+        <p style="margin-top:8px">The daily check takes 5 minutes. Missing it is the single most costly operational shortcut in COSKY management.</p>
+      </div>
+      <div class="ops-table-wrap">
+        <table class="ops-table">
+          <thead><tr><th>#</th><th>Task</th><th>Detail</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td class="step-num">1</td><td class="bold-cell">Run Prompt C-3</td><td>Supply all open positions with ID, ticker, version, entry date, entry price, current stop, and current grade. AI checks all 7 exit conditions in priority order.</td><td>5 min</td></tr>
+            <tr><td class="step-num">2</td><td class="bold-cell">Execute triggered exits</td><td>Sec_collapse and stop hits: close at market immediately. 2R partial: sell 50%, move stop to entry. All actions same-day.</td><td>Immediate</td></tr>
+            <tr><td class="step-num">3</td><td class="bold-cell">Update Live Grade column</td><td>2R partial fired → "→★5 (2R hit [date])". Sec_collapse → "→★2 (sec_collapse [date])". 4.0 day 70+ → "→★5 (timeout+70d)".</td><td>2 min</td></tr>
+            <tr><td class="step-num">4</td><td class="bold-cell">Update signal log</td><td>Record actual exit price, exit date/time, exit reason, and P&L% for any closed positions.</td><td>2 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- S2 -->
+    <section id="s2" class="ops-section">
+      <div class="ops-section-label">Section 2</div>
+      <h2 class="ops-h2">The Dual-Track Grading System</h2>
+      <p class="ops-p">COSKY uses two independent grade tracks simultaneously. Entry Grade — assessed once at signal identification — determines position size. Live Grade — dynamic during the trade — determines hold and exit behaviour. They serve different purposes and update on different timescales.</p>
+      <p class="ops-p">Critical finding from the data: all five versions have nearly identical EV per trade (+5.1% to +7.2%). The win rate hierarchy (4.0 &gt; 3.0 &gt; 5.0) is misleading. COSKY 1.0's 46% win rate still generates +6.7% EV because its average win (+21.8%) is the highest in the family. The version scoring reflects Kelly (consistency) as well as EV.</p>
+
+      <div id="s2-1" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">2.1 Track A — Entry Grade Dimensions</h3>
+      <div class="dim-grid">
+        <div class="dim-card">
+          <div class="dim-num">1</div>
+          <div class="dim-body">
+            <div class="dim-name">Version (Kelly-weighted EV)</div>
+            <div class="dim-range">1–4 pts</div>
+            <div class="dim-detail">4.0=<span class="teal">4</span> · 3.0=<span class="teal">3</span> · 5.0=<span class="teal">3</span> · 2.0=<span class="teal">2</span> · 1.0=<span class="teal">1</span></div>
+            <div class="dim-ev">2.0 scores 2pts (not 3) because Kelly=39.3% is lower than 3.0's 44.8% despite similar EV. Consistency matters.</div>
+          </div>
+        </div>
+        <div class="dim-card dim-highlight">
+          <div class="dim-num">2</div>
+          <div class="dim-body">
+            <div class="dim-name">Sector (EV-ranked by version)</div>
+            <div class="dim-range">1–4 pts</div>
+            <div class="dim-detail">Top-EV sector for that version=<span class="teal">4</span> · 2nd tier=<span class="teal">3</span> · 3rd tier=<span class="teal">2</span> · Low-EV=<span class="teal">1</span> · Negative-EV=<span class="red">0 (skip)</span></div>
+            <div class="dim-ev">Scoring is version-specific. XLI is 0pts for 3.0 (negative EV). XLF is 4pts for 4.0 (EV=+15.4%). See matrix below.</div>
+          </div>
+        </div>
+        <div class="dim-card">
+          <div class="dim-num">3</div>
+          <div class="dim-body">
+            <div class="dim-name">Month (version-specific)</div>
+            <div class="dim-range">1–4 pts</div>
+            <div class="dim-detail">Top months per version=<span class="teal">4</span> · 2nd quartile=<span class="teal">3</span> · 3rd quartile=<span class="teal">2</span> · Weakest months=<span class="teal">1</span></div>
+            <div class="dim-ev">Jul-Sep best for 3.0+4.0 · Sep best for 2.0 (82% WR) · Jan danger for 2.0/3.0/4.0 · Nov danger for 1.0/2.0</div>
+          </div>
+        </div>
+        <div class="dim-card">
+          <div class="dim-num">4</div>
+          <div class="dim-body">
+            <div class="dim-name">RS Rank at Entry (%)</div>
+            <div class="dim-range">1–4 pts</div>
+            <div class="dim-detail">3.0: rank 10–25%=<span class="teal">4</span>, 5–10%=<span class="teal">3</span> · 4.0/5.0: rank 0–5%=<span class="teal">4</span>, 5–10%=<span class="teal">3</span> · 1.0/2.0: rank ≥97%=<span class="teal">4</span>, ≥90%=<span class="teal">3</span></div>
+            <div class="dim-ev">Pooled data: rank 10–15% produces highest EV=+8.5% · rank 0–5% EV=+6.0% · rank 75%+ EV=+0.8%</div>
+          </div>
+        </div>
+        <div class="dim-card" style="grid-column:1/-1">
+          <div class="dim-num">5</div>
+          <div class="dim-body">
+            <div class="dim-name">Regime Strength</div>
+            <div class="dim-range">1–4 pts</div>
+            <div class="dim-detail">SPY above 20-EMA AND sector RS top 50% AND rising=<span class="teal">4</span> · SPY above 20-EMA, sector neutral=<span class="teal">3</span> · SPY above 20-EMA, sector mixed=<span class="teal">2</span> · SPY within 2% of 20-EMA (caution)=<span class="teal">1</span></div>
+            <div class="dim-ev">Sector strength multiplies individual stock RS signals. A reversal in a sector also turning up has 15–20% higher WR than one in a neutral sector.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="s2-2" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">2.2 Sector EV Matrix — By Version (Use for Dimension 2)</h3>
+      <div class="ops-table-wrap">
+        <table class="ops-table">
+          <thead>
+            <tr><th>Sector</th><th>1.0 EV / Pts</th><th>2.0 EV / Pts</th><th>3.0 EV / Pts</th><th>4.0 EV / Pts</th><th>5.0 EV / Pts</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="bold-cell">XLK (Technology)</td><td class="green">+12.9% / 4</td><td class="green">+11.0% / 4</td><td class="green">+14.0% / 4</td><td>+11.2% / 3</td><td class="green">+8.7% / 4</td></tr>
+            <tr><td class="bold-cell">XLF (Finance)</td><td>+8.4% / 2</td><td>+5.4% / 2</td><td>+10.5% / 3</td><td class="green">+15.4% / 4</td><td>+5.9% / 2</td></tr>
+            <tr><td class="bold-cell">XLE (Energy)</td><td>+2.7% / 2</td><td>+6.1% / 3</td><td>+10.9% / 3</td><td>+10.5% / 3</td><td class="green">+8.9% / 3</td></tr>
+            <tr><td class="bold-cell">XLI (Industrial)</td><td class="green">+16.3% / 4</td><td>+2.1% / 1</td><td class="red">−2.0% / 0 (skip)</td><td>+9.5% / 3</td><td>+1.8% / 1</td></tr>
+            <tr><td class="bold-cell">XLY (Consumer Disc)</td><td>+9.3% / 3</td><td class="green">+12.0% / 4</td><td>+7.3% / 2</td><td>+6.6% / 2</td><td>+4.6% / 2</td></tr>
+            <tr><td class="bold-cell">XLV (Healthcare)</td><td>+0.5% / 1</td><td>+9.0% / 3</td><td class="red">−0.7% / 0 (skip)</td><td>+3.2% / 1</td><td>+5.8% / 2</td></tr>
+            <tr><td class="bold-cell">XLB (Materials)</td><td class="red">−2.0% / 0 (skip)</td><td>+0.9% / 1</td><td>+1.7% / 1</td><td>+3.3% / 1</td><td>+0.2% / 1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ops-p" style="margin-top:0;font-size:12px;color:var(--text-dim)">0 / skip = negative or near-zero EV. Do not take signals in these sector×version combinations under standard conditions.</p>
+
+      <h3 class="ops-h3">Entry Grade Thresholds</h3>
+      <div class="grade-threshold-table">
+        <div class="gtt-row gtt-g5">
+          <div class="gtt-grade">★★★★★<br><span>GRADE 5</span></div>
+          <div class="gtt-score">Score 15+</div>
+          <div class="gtt-stats"><span>WR ≥85%</span><span>EV +14–22%</span></div>
+          <div class="gtt-size">2.2% risk (Plat) / 1.8% (Gold)</div>
+        </div>
+        <div class="gtt-row gtt-g4">
+          <div class="gtt-grade">★★★★☆<br><span>GRADE 4</span></div>
+          <div class="gtt-score">Score 12–14</div>
+          <div class="gtt-stats"><span>WR 70–84%</span><span>EV +9–14%</span></div>
+          <div class="gtt-size">1.8% or 1.5% risk</div>
+        </div>
+        <div class="gtt-row gtt-g3">
+          <div class="gtt-grade">★★★☆☆<br><span>GRADE 3</span></div>
+          <div class="gtt-score">Score 9–11</div>
+          <div class="gtt-stats"><span>WR 55–69%</span><span>EV +5–9%</span></div>
+          <div class="gtt-size">1.5% risk</div>
+        </div>
+        <div class="gtt-row gtt-g2">
+          <div class="gtt-grade">★★☆☆☆<br><span>GRADE 2</span></div>
+          <div class="gtt-score">Score 6–8</div>
+          <div class="gtt-stats"><span>WR 45–54%</span><span>EV +1–5%</span></div>
+          <div class="gtt-size">0.75% risk — max</div>
+        </div>
+        <div class="gtt-row gtt-g1">
+          <div class="gtt-grade">★☆☆☆☆<br><span>GRADE 1</span></div>
+          <div class="gtt-score">Score 4–5</div>
+          <div class="gtt-stats"><span>WR 45–49%</span><span>EV +0–1%</span></div>
+          <div class="gtt-size">0.5% risk — max</div>
+        </div>
+      </div>
+
+      <div id="s2-3" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">2.3 Track B — Live Grade Events</h3>
+      <div class="live-events">
+        <div class="le-card le-up">
+          <div class="le-header">
+            <span class="le-badge le-up-badge">↑ UPGRADE → ★★★★★ 5</span>
+            <span class="le-title">2R Partial Exit Fires</span>
+          </div>
+          <div class="le-stats">
+            <span>WR once triggered: <strong class="green">100% — guaranteed</strong></span>
+            <span>Coverage: All versions · 64+29+9+21 occurrences</span>
+            <span>EV: +13–28% per trade</span>
+          </div>
+          <div class="le-action">Sell 50% at market. Move stop on remaining 50% to entry price. Update Live Grade column to "→★5 (2R hit [date])". The remaining position has zero downside — it is risk-free capital.</div>
+        </div>
+        <div class="le-card le-up">
+          <div class="le-header">
+            <span class="le-badge le-up-badge">↑ UPGRADE → ★★★★★ 5</span>
+            <span class="le-title">COSKY 4.0 — Day 70+ with Positive P&L</span>
+          </div>
+          <div class="le-stats">
+            <span>WR once triggered: <strong class="green">97.7% (n=44)</strong></span>
+            <span>EV: +20.7% avg</span>
+          </div>
+          <div class="le-action">Upgrade to Grade 5. Hold through minor pullbacks. Do not close early due to impatience. This trade is statistically near-certain to close profitably. Update Live Grade column.</div>
+        </div>
+        <div class="le-card le-close">
+          <div class="le-header">
+            <span class="le-badge le-close-badge">CLOSE → EXIT</span>
+            <span class="le-title">RS 52-Week High Reached (4.0)</span>
+          </div>
+          <div class="le-stats">
+            <span>WR: <strong class="green">100% (n=5)</strong></span>
+            <span>EV: <strong class="teal">+47.6% — highest single exit EV</strong></span>
+          </div>
+          <div class="le-action">Close full position immediately at market. The stock has fully re-rated from abandoned to confirmed institutional leader. This is the COSKY 1.0 entry signal — 4.0 has been in the trade for weeks or months already.</div>
+        </div>
+        <div class="le-card le-down">
+          <div class="le-header">
+            <span class="le-badge le-down-badge">↓ DOWNGRADE → ★★☆☆☆ 2</span>
+            <span class="le-title">Sector Collapse Detected</span>
+          </div>
+          <div class="le-stats">
+            <span>WR after trigger: <strong class="amber">42% (n=71, 4.0)</strong></span>
+            <span>EV: +0.8% — near breakeven</span>
+          </div>
+          <div class="le-action">If stop is at breakeven (2R partial previously fired): evaluate — downside is limited but probability is now low. If stop is still at entry×0.93: EXIT immediately. The RS reversal thesis is invalidated. Update Live Grade.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 -->
+    <section id="s3" class="ops-section">
+      <div class="ops-section-label">Section 3</div>
+      <h2 class="ops-h2">Grade-by-Grade Entry Protocols</h2>
+
+      <div id="s3-g5" class="ops-sub-anchor"></div>
+      <div class="protocol-card prot-g5">
+        <div class="prot-header"><div class="prot-stars">★★★★★</div><div class="prot-label">GRADE 5 — Tier 1 Entry</div></div>
+        <div class="prot-grid">
+          <div class="prot-row"><span class="prot-key">Typical Setup</span><span class="prot-val">COSKY 4.0 in XLF or XLK, July–September, RS rank 0–10%, Platinum tier (score ≥16), SPY above 20-EMA with sector trending up. Produced 96% WR across n=23 trades.</span></div>
+          <div class="prot-row"><span class="prot-key">Position Size</span><span class="prot-val teal-text bold">2.2% risk for Platinum (4.0). 1.8% risk for Gold or strong 3.0. These are the maximum COSKY risk allocations.</span></div>
+          <div class="prot-row"><span class="prot-key">Entry</span><span class="prot-val">Enter at Monday open following the Friday scan. Prompt execution. Calculate exact shares: Portfolio × 0.022 ÷ (Entry − Stop).</span></div>
+          <div class="prot-row"><span class="prot-key">Stop</span><span class="prot-val">Entry × 0.93 (7% below entry). Set as GTC stop order on Monday morning. Non-negotiable.</span></div>
+          <div class="prot-row"><span class="prot-key">TP1 (2R)</span><span class="prot-val">Entry + 2 × (Entry − Stop). Set as a limit order. This is the 2R partial exit trigger.</span></div>
+          <div class="prot-row"><span class="prot-key">TP2 (Full Target)</span><span class="prot-val">4.0: RS hits 52-week high. 3.0: crowd recognition exit (RS at 52-week high). Set a price alert at the estimated RS high level.</span></div>
+          <div class="prot-row prot-highlight"><span class="prot-key">2R Partial</span><span class="prot-val teal-text bold">MANDATORY when TP1 is hit. Sell 50%, move stop to entry price. Upgrade Live Grade to ★★★★★ 5. The trade is now risk-free.</span></div>
+          <div class="prot-row"><span class="prot-key">Hold Period</span><span class="prot-val">Hold remaining 50% until TP2 or daily exit monitor flags a close condition. Median 4.0 hold: 26 days. Do not close early based on price action alone — let the exit system work.</span></div>
+          <div class="prot-row prot-note"><span class="prot-key">Risk</span><span class="prot-val">Sector collapse before the 2R partial fires converts this to a Grade 2 trade — exit with priority. Daily exit monitor is critical at this stage.</span></div>
+        </div>
+      </div>
+
+      <div id="s3-g4" class="ops-sub-anchor"></div>
+      <div class="protocol-card prot-g4">
+        <div class="prot-header"><div class="prot-stars">★★★★☆</div><div class="prot-label">GRADE 4 — High Quality Entry</div></div>
+        <div class="prot-grid">
+          <div class="prot-row"><span class="prot-key">Typical Setup</span><span class="prot-val">4.0 Gold tier in top-EV sector in neutral month. 3.0 in XLK/XLF in non-weak month. 2.0 in XLK/XLY in strong month. SPY above 20-EMA required for all.</span></div>
+          <div class="prot-row"><span class="prot-key">Position Size</span><span class="prot-val green bold">1.8% risk for 4.0 Gold. 1.5% risk standard for all other Grade 4 signals. Full deployment.</span></div>
+          <div class="prot-row prot-highlight"><span class="prot-key">2R Partial</span><span class="prot-val green bold">Mandatory. Execute without delay when TP1 is reached.</span></div>
+          <div class="prot-row"><span class="prot-key">Version TP2</span><span class="prot-val">4.0: rs_matured (RS &gt;80th pct) or rs_high. 3.0: crowd recognition. 2.0: rs_exit signal. Version-specific but always defined before entry.</span></div>
+          <div class="prot-row"><span class="prot-key">Hold</span><span class="prot-val">Standard hold. Trust the daily exit monitor to flag legitimate close conditions. Do not apply pressure to exit early.</span></div>
+        </div>
+      </div>
+
+      <div id="s3-g3" class="ops-sub-anchor"></div>
+      <div class="protocol-card prot-g3">
+        <div class="prot-header"><div class="prot-stars">★★★☆☆</div><div class="prot-label">GRADE 3 — Standard Entry</div></div>
+        <div class="prot-grid">
+          <div class="prot-row"><span class="prot-key">Position Size</span><span class="prot-val">1.5% risk for all Grade 3 regardless of version.</span></div>
+          <div class="prot-row"><span class="prot-key">Best Available Check</span><span class="prot-val">Before entering Grade 3: is this the best available signal this week? Is a Grade 4+ available on another version or sector that should take priority?</span></div>
+          <div class="prot-row"><span class="prot-key">Weak Month Rule</span><span class="prot-val">If current month scores 1pt for this version (e.g. Jan for 2.0/3.0/4.0, Nov for 1.0/2.0): reduce to 1.0% risk. The seasonal EV differential is material.</span></div>
+          <div class="prot-row"><span class="prot-key">Zero-Point Sector</span><span class="prot-val">If sector scores 0pts (XLI for 3.0, XLB for 1.0, XLV for 3.0): do not take. Negative EV disqualifies regardless of other dimensions.</span></div>
+          <div class="prot-row prot-highlight"><span class="prot-key">2R Partial</span><span class="prot-val">Mandatory on all Grade 3 signals.</span></div>
+        </div>
+      </div>
+
+      <div id="s3-g2" class="ops-sub-anchor"></div>
+      <div class="protocol-card prot-g2">
+        <div class="prot-header"><div class="prot-stars">★★☆☆☆</div><div class="prot-label">GRADE 2 — Below Average Entry</div></div>
+        <div class="prot-grid">
+          <div class="prot-row prot-highlight"><span class="prot-key">Decision Gate</span><span class="prot-val amber-text bold">Do not take automatically. Check: (1) Is a Grade 3+ available this week on any version? (2) Is the sector scoring 0pts (negative EV)? (3) Is this a structurally dangerous month for this version?</span></div>
+          <div class="prot-row"><span class="prot-key">When to Take</span><span class="prot-val">Capital needs deployment, no Grade 3+ exists, entry conditions cleanly met, sector is not scoring 0pts, and the specific weakness is seasonal (not structural).</span></div>
+          <div class="prot-row"><span class="prot-key">Position Size</span><span class="prot-val amber-text bold">0.75% risk. Hard ceiling.</span></div>
+          <div class="prot-row"><span class="prot-key">Hold Limit</span><span class="prot-val">If the trade is underwater after 20 trading days without a 2R partial, close and redeploy capital. Grade 2 signals should not be carried through extended adverse periods.</span></div>
+        </div>
+      </div>
+
+      <div id="s3-g1" class="ops-sub-anchor"></div>
+      <div class="protocol-card prot-g1">
+        <div class="prot-header"><div class="prot-stars">★☆☆☆☆</div><div class="prot-label">GRADE 1 — Minimum Viable</div></div>
+        <div class="prot-grid">
+          <div class="prot-row prot-highlight"><span class="prot-key">Default</span><span class="prot-val red-text bold">Pass. Grade 1 signals should not be actively sought. If repeated Grade 1 signals are appearing, review scan methodology and version selection.</span></div>
+          <div class="prot-row"><span class="prot-key">If Taken</span><span class="prot-val">0.5% risk maximum. No premium position size for version or tier. Exit at 1.5R or stop — do not hold to full TP2.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S4 -->
+    <section id="s4" class="ops-section">
+      <div class="ops-section-label">Section 4</div>
+      <h2 class="ops-h2">Version-Specific Management Rules</h2>
+      <p class="ops-p">Each COSKY version has unique characteristics that require version-specific operational adjustments beyond the universal grade framework.</p>
+
+      <div id="s4-1" class="ops-sub-anchor"></div>
+      <div class="ver-card ver-10">
+        <div class="ver-header"><span class="ver-num">1.0</span><span class="ver-name">RS 52-Week High</span><span class="ver-stat">+134% · $234K · 119 trades</span></div>
+        <div class="ver-body">
+          <div class="ver-rule ver-key">Highest average win (+21.8%) — when right, significantly right. The 46% win rate is not a problem. Expect individual losses and hold through them. The payoff structure requires holding to the exit signal, not exiting early on recovering trades.</div>
+          <div class="ver-rule">No regime gate — 1.0 trades in all conditions. In bear markets (SPY below 20-EMA), 1.0 is the only COSKY version scanning.</div>
+          <div class="ver-rule ver-warn">January danger: the strategy's worst month for most versions, but 1.0 hits 50% WR in April (its best month). In November (12% WR for 1.0), consider suspending new 1.0 entries.</div>
+          <div class="ver-rule">XLB has negative EV (−2.0%) for 1.0. Do not take 1.0 signals in XLB regardless of other conditions.</div>
+          <div class="ver-rule">Exit: RSR below 38 → exit. RS at 52-week low → exit immediately. RS below 50-day EMA → exit. Stop (7% below entry) → exit.</div>
+        </div>
+      </div>
+
+      <div id="s4-2" class="ops-sub-anchor"></div>
+      <div class="ver-card ver-20">
+        <div class="ver-header"><span class="ver-num">2.0</span><span class="ver-name">Regime + VCP + 2R</span><span class="ver-stat">+147% · $247K · 231 trades</span></div>
+        <div class="ver-body">
+          <div class="ver-rule ver-key">Tightest average loss (−5.4%). The VCP filter (ATR(10) &lt; 60% of ATR(30)) ensures price is in a base before entry. Entry has lower failure rate because price has already stopped declining.</div>
+          <div class="ver-rule">SPY regime gate — zero entries when SPY below 20-day EMA. This constraint is a major source of 2.0's risk-adjusted outperformance.</div>
+          <div class="ver-rule ver-warn">November (26% WR) and January (0% WR) are danger months. Suspend 2.0 in these months entirely or reduce to 50% position size with Grade 4+ minimum.</div>
+          <div class="ver-rule">September is 2.0's best month (82% WR, EV=+9%). May is also strong (64% WR).</div>
+          <div class="ver-rule">The 2R partial (29 occurrences, 100% WR) and timeout exit (36 occurrences, 100% WR, avg +29.1%) account for most of 2.0's profitable outcomes. Letting these play out is critical.</div>
+        </div>
+      </div>
+
+      <div id="s4-3" class="ops-sub-anchor"></div>
+      <div class="ver-card ver-30">
+        <div class="ver-header"><span class="ver-num">3.0</span><span class="ver-name">RS Reversal</span><span class="ver-stat">+93% · $193K · 150 trades · 64% WR</span></div>
+        <div class="ver-body">
+          <div class="ver-rule ver-key">All six entry conditions must be true simultaneously. The RS must have been below 28th percentile 20 days ago, crossed its 20-day EMA, the EMA must be rising, and the rank must still be below 55th percentile. This precision produces 64% WR — the highest in the family.</div>
+          <div class="ver-rule ver-crit">XLI (EV=−2.0%) and XLV (EV=−0.7%) are negative-EV for 3.0. Never take 3.0 signals in these sectors regardless of grade score.</div>
+          <div class="ver-rule">3.0 exits exactly where 1.0 enters (RS at 52-week high / crowd recognition). The strategy has been in the trade for 3–5 weeks before 1.0 even identifies the opportunity.</div>
+          <div class="ver-rule ver-warn">Sec_collapse and momentum_fade exits require daily monitoring — they can turn a winning trade into a loss if missed. Run the daily exit monitor every day for 3.0 positions.</div>
+          <div class="ver-rule">Best months: August (81% WR, EV=+14.6%), March (75%, EV=+14.5%), September (80%, EV=+10.8%). January and February are weak (22–29% WR).</div>
+        </div>
+      </div>
+
+      <div id="s4-4" class="ops-sub-anchor"></div>
+      <div class="ver-card ver-40">
+        <div class="ver-header"><span class="ver-num">4.0</span><span class="ver-name">Dark Horse</span><span class="ver-stat">+266% · $366K · 281 trades · +274% alpha</span></div>
+        <div class="ver-body">
+          <div class="ver-rule ver-key">Platinum tier (score ≥16) requires PLATINUM Bonus (+5pts) which needs (Zone or Emerged) AND any Phoenix signal AND rank &lt;12. Perhaps 3–5 per year. When Platinum appears: 2.2% risk, immediate execution, hold to full TP.</div>
+          <div class="ver-rule">Exit cascade by EV: rs_high (100% WR, +47.6%) → rs_matured (100%, +21.3%) → timeout day 70+ with positive P&L (97.7%, +20.7%) → 2R partial (100%) → mom_fade (88.9%) → sec_collapse (42% — downgrade) → stop (0%).</div>
+          <div class="ver-rule ver-warn">January (27% WR) and December (30% WR) are danger months. Do not deploy new 4.0 in November–January without Grade 14+ score. July (85% WR) and February (78% WR) are best.</div>
+          <div class="ver-rule">The 4.0 day-70+ timeout upgrade (→★5, 97.7% WR) is checked daily. A 4.0 trade with positive P&L at day 70 should be held — this is near-certain to close profitably.</div>
+          <div class="ver-rule ver-crit">Sec_collapse is the primary risk (71 occurrences in 4.0 alone). Run daily exit monitor without fail.</div>
+        </div>
+      </div>
+
+      <div id="s4-5" class="ops-sub-anchor"></div>
+      <div class="ver-card ver-50">
+        <div class="ver-header"><span class="ver-num">5.0</span><span class="ver-name">Phoenix</span><span class="ver-stat">+128% · $227K · 260 trades</span></div>
+        <div class="ver-body">
+          <div class="ver-rule ver-key">Detects RS collapse 35%+ from 52-week peak with first recovery signal (RS crossing its 10-day EMA for the first time in 30+ days below). Deep Phoenix (50%+ collapse) scores higher (+7pts vs +5pts) — the larger the collapse, the larger the potential re-rating.</div>
+          <div class="ver-rule">Prior-peak recovery exit is unique to 5.0: close when RS has recovered 80%+ of the collapse distance back to the prior RS peak. Captures the full round-trip.</div>
+          <div class="ver-rule">March (84% WR, EV=+14.8%) is 5.0's single best month. July and August also strong. December (36%) and October (42%) are weak — reduce or skip new 5.0 entries in these months.</div>
+          <div class="ver-rule">Stop is identical to all versions: entry × 0.93. The 7% stop is not widened for deeper collapses — the collapse has already occurred. You are entering the recovery, not the collapse.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S5 -->
+    <section id="s5" class="ops-section">
+      <div class="ops-section-label">Section 5</div>
+      <h2 class="ops-h2">Live Trade Management</h2>
+
+      <div id="s5-1" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">5.1 Exit Priority Table — All Versions</h3>
+      <div class="ops-table-wrap">
+        <table class="ops-table">
+          <thead><tr><th>#</th><th>Exit Signal</th><th>Condition</th><th>Action</th><th>WR After</th></tr></thead>
+          <tbody>
+            <tr class="exit-best-row"><td class="step-num">1</td><td class="bold-cell" style="color:var(--gold-lt)">2R Partial</td><td>Price ≥ Entry + 2×(Entry − Stop)</td><td>Sell 50%. Stop → Entry. Upgrade to ★5.</td><td class="green bold">100%</td></tr>
+            <tr><td class="step-num">2</td><td class="bold-cell green">Crowd Recognition</td><td>RS at 52-week high AND rank >80th pct</td><td>Close full remaining position.</td><td class="green bold">100%</td></tr>
+            <tr><td class="step-num">3</td><td class="bold-cell green">4.0 Timeout ★5</td><td>4.0 held 70+ days with positive P&L</td><td>Upgrade to ★5. Hold. Do not exit.</td><td class="green bold">97.7%</td></tr>
+            <tr><td class="step-num">4</td><td class="bold-cell green">RS_High (4.0)</td><td>RS hits new 52-week high</td><td>Close full position. Highest exit EV.</td><td class="green bold">100%</td></tr>
+            <tr><td class="step-num">5</td><td class="bold-cell">Momentum Fade</td><td>RS velocity &lt;−0.012 AND rank &gt;50% AND held &gt;14d</td><td>Close position.</td><td class="green">89.7%</td></tr>
+            <tr><td class="step-num">6</td><td class="bold-cell">Prior Peak (5.0)</td><td>RS recovered 80%+ of collapse distance</td><td>Close position.</td><td class="green">73%+</td></tr>
+            <tr class="exit-warn-row"><td class="step-num">7</td><td class="bold-cell amber">Sector Collapse</td><td>Sector RSR &lt;33 AND RS below 20-day EMA</td><td>Downgrade to ★2. If stop at breakeven: evaluate. If original stop: EXIT immediately.</td><td class="amber">42%</td></tr>
+            <tr class="exit-bad-row"><td class="step-num">8</td><td class="bold-cell red">Hard Stop</td><td>Price ≤ Entry × 0.93</td><td>Close at market immediately.</td><td class="red bold">0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="s5-2" class="ops-sub-anchor"></div>
+      <div class="callout callout-teal">
+        <div class="callout-title">⚡ The 2R Partial Exit — Single Most Important Action</div>
+        <p>When price reaches Entry + 2 × (Entry − Stop): sell exactly 50%, move stop to entry price. This action converts the trade from "possible winner" into "guaranteed winner." The remaining 50% has zero downside.</p>
+        <p style="margin-top:8px"><strong>Target execution rate: 100%.</strong> Every missed 2R partial is permanently lost guaranteed profit. After executing, update Live Grade to "→★5 (2R hit [date])". All versions: 2.0 (100% WR, 29 occurrences), 3.0 (100%, 9), 4.0 (100%, 64), 5.0 (100%, 21).</p>
+      </div>
+
+      <div id="s5-3" class="ops-sub-anchor"></div>
+      <h3 class="ops-h3">5.3 Sector Collapse Response Decision Tree</h3>
+      <div class="decision-tree">
+        <div class="dt-node dt-trigger">Sector Collapse Detected (Sector RSR &lt;33 AND RS below 20-EMA)</div>
+        <div class="dt-branch">
+          <div class="dt-path dt-left">
+            <div class="dt-cond">2R partial has already fired<br>(stop is at entry price)</div>
+            <div class="dt-outcome dt-neutral">Evaluate hold. Downgrade to Grade 2. The position has no further downside risk — the stop guarantees breakeven at worst. Consider holding if the sec_collapse looks temporary (sector volatility spike rather than sustained decline).</div>
+          </div>
+          <div class="dt-path dt-right">
+            <div class="dt-cond">Stop still at entry × 0.93<br>(2R partial not yet fired)</div>
+            <div class="dt-outcome dt-action">EXIT IMMEDIATELY at market. The RS reversal thesis is invalidated. With 42% WR and +0.8% EV remaining, continued holding is not justified when there is still 7% of capital at risk.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S6 -->
+    <section id="s6" class="ops-section">
+      <div class="ops-section-label">Section 6</div>
+      <h2 class="ops-h2">Risk Controls</h2>
+
+      <div id="s6-1" class="ops-sub-anchor"></div>
+      <div class="ops-table-wrap">
+        <table class="ops-table">
+          <thead><tr><th>Risk Parameter</th><th>Limit</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="bold-cell">Standard risk per trade</td><td class="teal bold">1.5% of portfolio</td><td>Grade 3 and standard Grade 4 signals.</td></tr>
+            <tr><td class="bold-cell">Grade 5 / Platinum</td><td class="green bold">2.2% of portfolio</td><td>4.0 Platinum in Jul-Sep in top sector. Hard ceiling.</td></tr>
+            <tr><td class="bold-cell">Grade 4 / Gold</td><td class="green bold">1.8% of portfolio</td><td>4.0 Gold and strong 3.0 signals.</td></tr>
+            <tr><td class="bold-cell">Grade 2 ceiling</td><td class="amber bold">0.75% of portfolio</td><td>Never exceed 0.75% for Grade 2.</td></tr>
+            <tr><td class="bold-cell">Grade 1 ceiling</td><td class="amber bold">0.5% of portfolio</td><td>Hard ceiling. Not an active trading target.</td></tr>
+            <tr><td class="bold-cell">Max concurrent (all versions)</td><td class="red bold">8 positions</td><td>Portfolio concentration cap.</td></tr>
+            <tr><td class="bold-cell">Max per individual version</td><td class="red bold">5 positions</td><td>Prevents any single version dominating the portfolio.</td></tr>
+            <tr><td class="bold-cell">Single sector cap</td><td class="amber bold">30% of deployed capital</td><td>If XLK has 3 open positions: no new XLK entries regardless of signal quality.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="ops-h3">Drawdown Protocols</h3>
+      <div class="drawdown-levels">
+        <div class="dd-level dd-caution"><div class="dd-pct">5%</div><div class="dd-body"><div class="dd-label">Caution</div><div class="dd-desc">Review all open positions against exit checklist. Ensure stops placed. Continue Grade 4+ at full size.</div></div></div>
+        <div class="dd-level dd-reduce"><div class="dd-pct">10%</div><div class="dd-body"><div class="dd-label">Reduce</div><div class="dd-desc">All new entries at 75% of standard size. Grade 3+ only. Grade 1–2 suspended.</div></div></div>
+        <div class="dd-level dd-pause"><div class="dd-pct">15%</div><div class="dd-body"><div class="dd-label">Pause Grade 3–</div><div class="dd-desc">No new Grade 3 or below. Grade 4–5 at 50% size. Close any Grade 2/1 still open. Full audit.</div></div></div>
+        <div class="dd-level dd-stop"><div class="dd-pct">20%</div><div class="dd-body"><div class="dd-label">Full Review</div><div class="dd-desc">Close all positions. Halt trading. Review every recent signal against entry checklists. Verify drawdown vs historical parameters for each version.</div></div></div>
+      </div>
+    </section>
+
+    <!-- S7 -->
+    <section id="s7" class="ops-section">
+      <div class="ops-section-label">Section 7</div>
+      <h2 class="ops-h2">Performance Tracking Framework</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-name">Grade Distribution</div>
+          <div class="kpi-target">≥55% Grade 4–5</div>
+          <div class="kpi-calc">Grade 4–5 signals ÷ total signals taken</div>
+          <div class="kpi-action">If Grade 2/1 &gt;45%, review scan methodology and version priority.</div>
+        </div>
+        <div class="kpi-card kpi-critical">
+          <div class="kpi-name">2R Partial Execution</div>
+          <div class="kpi-target target-red">100%</div>
+          <div class="kpi-calc">Partials executed ÷ trades reaching 2R level</div>
+          <div class="kpi-action">Any value below 100% is an operational failure requiring immediate correction.</div>
+        </div>
+        <div class="kpi-card kpi-critical">
+          <div class="kpi-name">Sec_Collapse Response</div>
+          <div class="kpi-target target-red">Same day (≤8h)</div>
+          <div class="kpi-calc">Time from sec_collapse trigger to exit execution</div>
+          <div class="kpi-action">Increase daily exit monitor frequency if this target is being missed.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-name">4.0 Timeout Upgrade Capture</div>
+          <div class="kpi-target">≥90%</div>
+          <div class="kpi-calc">Day 70+ upgrades identified ÷ 4.0 trades ≥70 days</div>
+          <div class="kpi-action">A missed upgrade means a Grade 5 trade managed as Grade 3.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-name">Actual WR vs Benchmark</div>
+          <div class="kpi-target">Within 10pp</div>
+          <div class="kpi-calc">Your WR per grade vs G5≥85%, G4=70-84%, G3=55-69%</div>
+          <div class="kpi-action">Systematic underperformance over 20+ trades indicates entry quality issues.</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-name">Seasonal Compliance</div>
+          <div class="kpi-target">≥40% in strong months</div>
+          <div class="kpi-calc">Signals in top-tier seasonal months ÷ total signals</div>
+          <div class="kpi-action">If most signals fall in weak months, prioritise versions with strong current seasonality in Friday scans.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ops-footer-note">
+      COSKY FAMILY · Operational Guide · March 2026 · 1,041 backtested trades · 2020–2026<br>
+      <a href="index.html" style="color:var(--teal)">← Back to Main Dashboard</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<script>
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
+  const secs=['s1','s2','s3','s4','s5','s6','s7'];
+  let current='';
+  secs.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-100)current=id;});
+  document.querySelectorAll('.snav-a').forEach(a=>{a.classList.toggle('active',a.dataset.sec===current);});
+});
+</script>
+</body>
+</html>
